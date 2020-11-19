@@ -1,0 +1,15 @@
+<%= render 'navbar' %>
+<%= render 'bannershow' %>
+
+<div class="container pt-3">
+  <h2>Ingrédients</h2>
+  <ul>
+    <% @cocktail.doses.each do |dose|%>
+    <li><strong><%= dose.ingredient.name%></strong>  -  <%= dose.description%> <%= link_to '(delete)', dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' }, class: 'cocktail_name' %></li>
+    <% end %>
+  </ul>
+  <div class="text-center">
+    <%= link_to 'Add ingredient', new_cocktail_dose_path(@cocktail), class: "btn btn-ghost" %>
+  </div>
+</div>
+

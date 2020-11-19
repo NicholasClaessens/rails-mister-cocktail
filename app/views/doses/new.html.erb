@@ -1,0 +1,17 @@
+<%= render './cocktails/navbar' %>
+<div class="container pt-3">
+  <h2>Add a new ingredient</h2>
+
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+  <div class="form-inputs">
+    <%= f.input :description %>
+    <%= f.association :ingredient, input_html: { class: 'select2' } %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, 'Add ingredient', class: 'btn btn-ghost'%>
+  </div>
+<% end %>
+  <div class="text-center">
+    <%= link_to 'Back to the cocktail', cocktail_path(@cocktail), class: 'cocktail_name' %>
+  </div>
+</div>
