@@ -1,15 +1,55 @@
-<%= render 'navbar' %>
-<%= render 'bannershow' %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <%= image_tag "https://www.flaticon.com/svg/static/icons/svg/3699/3699974.svg" %>
+  <% end %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to "Add New Cocktail", new_cocktail_path, class: "btn btn-ghost" %>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1485265449635-ca623a55e95c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80);">
+  <div class="container text-center">
+    <h1><%= @cocktail.name %></h1>
+    <%= link_to 'Back to list', cocktails_path, class: 'lien' %>
+  </div>
+</div>
+
 
 <div class="container pt-3">
-  <h2>Ingrédients</h2>
-  <ul>
-    <% @cocktail.doses.each do |dose|%>
-    <li><strong><%= dose.ingredient.name%></strong>  -  <%= dose.description%> <%= link_to '(delete)', dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' }, class: 'cocktail_name' %></li>
-    <% end %>
-  </ul>
-  <div class="text-center">
-    <%= link_to 'Add ingredient', new_cocktail_dose_path(@cocktail), class: "btn btn-ghost" %>
+  <div class="show">
+    <div>
+      <h3 class="pl-3">Ingrédients</h3>
+      <ul>
+        <% @cocktail.doses.each do |dose|%>
+        <li><strong><%= dose.ingredient.name%></strong>  -  <%= dose.description%> <%= link_to '(delete)', dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' }, class: 'lien' %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="text-right">
+      <h3 class="text-center">Add a new ingredient</h3>
+      <%= simple_form_for [@cocktail, @dose] do |f| %>
+        <div class="form-inputs">
+          <%= f.input :description %>
+          <%= f.association :ingredient, input_html: { class: 'select2' } %>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit, 'Add ingredient', class: 'btn btn-ghost'%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="review">
+    <h3 class="text-center pt-5">Review</h3>
   </div>
 </div>
 

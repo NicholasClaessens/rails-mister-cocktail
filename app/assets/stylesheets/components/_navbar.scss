@@ -3,6 +3,8 @@ $fond: #191616;
 .navbar-lewagon {
   justify-content: space-between;
   background: $fond;
+  position: fixed;
+  width: 100%;
 }
 
 .navbar-lewagon .navbar-collapse {
