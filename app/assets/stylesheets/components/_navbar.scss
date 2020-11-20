@@ -6,6 +6,7 @@ $fond: #191616;
   background: $fond;
   position: fixed;
   width: 100%;
+  z-index: 1;
 }
 
 .navbar-lewagon .navbar-collapse {

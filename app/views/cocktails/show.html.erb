@@ -51,7 +51,12 @@
     <h3 class="pt-5">Review</h3>
     <ul>
       <% @cocktail.reviews.each do |review|%>
-      <li class="li-ingredient"><i class="fas fa-star"></i> <%= review.rating %>/5 - <%= review.content %></li>
+      <li class="li-ingredient">
+        <% review.rating.times do %>
+          <i class="fas fa-star"></i>
+        <% end %>
+        - <%= review.content %>
+      </li>
       <% end %>
     </ul>
     <h4 class="text-center">Add a new review</h4>
