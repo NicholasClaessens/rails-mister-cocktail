@@ -6,8 +6,7 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-
+  <div class="text-center mt-3"><p>Le cocktail bar</p></div>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
@@ -24,13 +23,13 @@
 </div>
 
 
-<div class="container pt-3">
+<div class="container pt-3 pb-5">
   <div class="show">
     <div>
       <h3 class="pl-3">Ingrédients</h3>
       <ul>
         <% @cocktail.doses.each do |dose|%>
-        <li><strong><%= dose.ingredient.name%></strong>  -  <%= dose.description%> <%= link_to '(delete)', dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' }, class: 'lien' %></li>
+        <li class="li-ingredient"><strong><%= dose.ingredient.name%></strong>  -  <%= dose.description%> <%= link_to '(delete)', dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' }, class: 'lien' %></li>
         <% end %>
       </ul>
     </div>
@@ -52,7 +51,7 @@
     <h3 class="pt-5">Review</h3>
     <ul>
       <% @cocktail.reviews.each do |review|%>
-      <li><i class="fas fa-star"></i> <%= review.rating %>/5 - <%= review.content %></li>
+      <li class="li-ingredient"><i class="fas fa-star"></i> <%= review.rating %>/5 - <%= review.content %></li>
       <% end %>
     </ul>
     <h4 class="text-center">Add a new review</h4>
@@ -67,4 +66,4 @@
       <% end %>
   </div>
 </div>
-
+<%= render 'footer' %>

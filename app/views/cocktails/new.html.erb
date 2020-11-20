@@ -1,5 +1,5 @@
 <%= render 'navbar' %>
-<div class="container pt-3">
+<div class="container">
   <h2>Add a new cocktail</h2>
 
   <%= simple_form_for(@cocktail) do |f| %>
@@ -11,7 +11,19 @@
     <%= f.button :submit, class: 'btn btn-ghost'%>
   </div>
 <% end %>
-  <div class="text-center">
+  <div class="text-center pt-2">
     <%= link_to 'Back to list', cocktails_path, class: 'lien' %>
+  </div>
+</div>
+<div class="footer bas">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
   </div>
 </div>

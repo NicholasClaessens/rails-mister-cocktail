@@ -32,6 +32,15 @@ h3 {
   color:white;
 }
 
+.pl-3 {
+  font-size: 40px;
+}
+
+.li-ingredient {
+  font-size: 18px;
+}
+
+
 h4 {
   font-weight: lighter;
   opacity: 0.6;
@@ -51,6 +60,10 @@ grid-template-columns: 1fr 1fr;
     li {
       text-decoration: none;
     }
+}
+
+.container {
+  padding-top: 100px;
 }
 
 .form-inputs {
